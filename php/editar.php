@@ -1,3 +1,11 @@
+<?php
+
+require_once '../php/listar.php';
+
+$dados = listarUsuarioId($_GET['ID']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -26,8 +34,6 @@
                       </li>
                     </ul>
                     <form class="d-flex">
-                      <a class="btn btn-light" href="login.html">Login</a>
-                      <a class="btn btn-outline-light ms-2" href="signup.html">Cadastro</a>
                     </form>
                   </div>
                 </div>
@@ -38,7 +44,7 @@
                 <div class="mt-5 d-flex align-items-center flex-column">
                     <h3>Cadastro</h3>
                 </div>
-                <form action="../php/inserir.php" method="POST">
+                <form action="../php/alterar.php?ID=<?php echo $dados['ID']; ?>" method="POST">
                     <div class="mt-3 d-flex align-items-center flex-column">
                         <div class="col-lg-6">
                             <label for="NOME" class="form-label">Nome:* </label>

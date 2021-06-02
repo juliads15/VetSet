@@ -21,7 +21,7 @@ if(isset($_GET['ID'])){
 				window.location.href='../php/lista.php';
 			<script>";
 		}
-		}
 	}
 }
+
 ?>

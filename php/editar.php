@@ -57,7 +57,7 @@ $dados = listarUsuarioId($_GET['ID']);
                             <input type="password" name="SENHA" class="form-control" id="password" aria-describedby="passwordHelp" required>
 
                             <label for="SENHA" class="mt-3 form-label">Confirmação de Senha:* </label>
-                            <input type="password" name="SENHA" class="form-control" id="password" aria-describedby="passwordHelp" required>
+                            <input type="password" name="SENHA" class="form-control" id="confirm-password" aria-describedby="passwordHelp" required>
 
                             <label for="TELEFONE" class="mt-3 form-label">Telefone Celular:* </label>
                             <input type="tel" name="TELEFONE" class="form-control" id="phone" aria-describedby="phoneHelp" required>

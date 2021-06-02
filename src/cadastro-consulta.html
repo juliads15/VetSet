@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         
-        <title>VetSet</title>
+        <title>Cadastro de consulta - VetSet</title>
     </head>
     <body>
         <header>
@@ -22,7 +22,7 @@
                   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../php/homepage-admin.php">Home</a>
                       </li>
                     </ul>
                     <form class="d-flex">
@@ -34,30 +34,27 @@
         <div class="container">
             <div class="row">
                 <div class="mt-5 d-flex align-items-center flex-column">
-                    <h3>Cadastro</h3>
+                    <h3>Cadastro de consulta</h3>
                 </div>
-                <form action="../php/inserir.php" method="POST">
+                <form action="../php/inserir_consulta.php" method="POST">
                     <div class="mt-3 d-flex align-items-center flex-column">
                         <div class="col-lg-6">
-                            <label for="NOME" class="form-label">Nome:* </label>
-                            <input type="text" name="NOME" class="form-control" id="name" aria-describedby="nameHelp" required>
+                            <label for="TIPOCONSULTA" class="form-label">Tipo de Consulta:* </label>
+                            <input type="text" name="TIPOCONSULTA" class="form-control" id="tipoConsulta" aria-describedby="tipoConsultaHelp" required>
 
-                            <label for="EMAIL" class="form-label mt-3">Email:* </label>
-                            <input type="email" name="EMAIL" class="form-control" id="email" aria-describedby="emailHelp" required>
+                            <label for="DATA" class="form-label mt-3">Data:* </label>
+                            <input type="date" name="DATA" class="form-control" id="data" aria-describedby="dataHelp" required>
 
-                            <label for="SENHA" class="mt-3 form-label">Senha:* </label>
-                            <input type="password" name="SENHA" class="form-control" id="password" aria-describedby="passwordHelp" required>
+                            <label for="HORA" class="mt-3 form-label">Horário:* </label>
+                            <input type="time" name="HORA" class="form-control" id="hora" aria-describedby="horaHelp" required>
 
-                            <label for="SENHA" class="mt-3 form-label">Confirmação de Senha:* </label>
-                            <input type="password" name="SENHA" class="form-control" id="confirm-password" aria-describedby="passwordHelp" required>
+                            <label for="PACIENTE" class="mt-3 form-label">Paciente:* </label>
+                            <input type="text" name="PACIENTE" class="form-control" id="paciente" aria-describedby="pacienteHelp" required>
 
-                            <label for="TELEFONE" class="mt-3 form-label">Telefone Celular:* </label>
-                            <input type="tel" name="TELEFONE" class="form-control" id="phone" aria-describedby="phoneHelp" required>
+                            <label for="VETERINARIO" class="mt-3 form-label">Veterinário:* </label>
+                            <input type="text" name="VETERINARIO" class="form-control" id="veterinario" aria-describedby="veterinarioHelp" required>
 
-                            <label for="CIDADE" class="form-label mt-3">Cidade:* </label>
-                            <input type="tel" name="CIDADE" class="form-control" id="city" aria-describedby="cityHelp" required>
-
-                            <button type="submit" class="mt-4 float-end btn btn-outline-success">Cadastrar</button>
+                            <button type="submit" class="mt-4 float-end btn btn-outline-success">Cadastrar consulta</button>
                         </div>
                     </div>
                     <div class="d-flex align-items-center flex-column">

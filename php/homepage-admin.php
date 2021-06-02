@@ -2,7 +2,7 @@
 
     require_once '../php/listar.php';
 
-    $dados = listarUsuarios();
+    $dados = listarConsultas();
 
 ?>
 
@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         
-        <title>Lista de Usuários - VetSet</title>
+        <title>Lista de Consultas - VetSet</title>
     </head>
     <body>
         <header>
@@ -30,11 +30,17 @@
                   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../php/homepage-admin.php">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../php/lista-veterinarios.php">Lista de Veterinários</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../php/estoque.php">Estoque</a>
                       </li>
                     </ul>
                     <form class="d-flex">
-                      <a class="btn btn-outline-light ms-2" href="#">Minha Conta</a>
+                      <a class="btn btn-outline-light ms-2" href="../src/index.html">Sair</a>
                     </form>
                   </div>
                 </div>
@@ -43,11 +49,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h3> Lista de Usuários</h3>
+                    <h3>Lista de Consultas</h3>
                     <hr>
                 </div>
                 <div class="col-md-4 text-right h2">
-                    <a class="btn btn-primary" href="cadastro.html"><i class="fa fa-plus"></i> Novo Usuário </a>
+                    <a class="btn btn-primary" href="../src/cadastro-consulta.html"><i class="fa fa-plus"></i> Cadastrar Consulta </a>
                 </div>
             </div>
     
@@ -58,26 +64,27 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome</th>
-                                <th>Email</th>
-                                <th>Telefone</th>
-                                <th>Cidade</th>
+                                <th>Tipo consulta</th>
+                                <th>Data</th>
+                                <th>Horário</th>
+                                <th>Paciente</th>
+                                <th>Veterinário</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php if($dados) : ?>
         
-                            <?php foreach($dados as $usuario) : ?>
+                            <?php foreach($dados as $consulta) : ?>
                             <tr>
-                                <td><?php echo $usuario['ID']; ?></td>
-                                <td><?php echo $usuario['NOME']; ?></td>
-                                <td><?php echo $usuario['EMAIL']; ?></td>
-                                <td><?php echo $usuario['TELEFONE']; ?></td>
-                                <td><?php echo $usuario['CIDADE']; ?></td>		
+                                <td><?php echo $consulta['ID']; ?></td>
+                                <td><?php echo $consulta['TIPOCONSULTA']; ?></td>
+                                <td><?php echo $consulta['DATA']; ?></td>
+                                <td><?php echo $consulta['HORA']; ?></td>
+                                <td><?php echo $consulta['PACIENTE']; ?></td>
+                                <td><?php echo $consulta['VETERINARIO']; ?></td>				
                                 <td>
-                                    <a href="#" class="btn btn-success">Visualizar</a>
-                                    <a href="../php/excluir.php?ID=<?php echo $usuario['ID']; ?>" class="btn btn-danger">Excluir</a>
-                                    <a href="../php/editar.php?ID=<?php echo $usuario['ID']; ?>" class="btn btn-info">Alterar</a>
+                                    <a href="../php/editar_consulta.php?ID=<?php echo $consulta['ID']; ?>" class="btn btn-info">Alterar</a>
+                                    <a href="../php/excluir_consulta.php?ID=<?php echo $consulta['ID']; ?>" class="btn btn-danger">Excluir</a>
                                 </td>
                             </tr>
         

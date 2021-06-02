@@ -2,8 +2,9 @@
 
     require_once '../php/listar.php';
 
-    $dados = listarUsuarios();
-
+    $dados = listarAnimais();
+    $dadosuser = listarUsuarios();
+                           
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         
-        <title>Lista de Usuários - VetSet</title>
+        <title>Lista de Animais - VetSet</title>
     </head>
     <body>
         <header>
@@ -30,11 +31,11 @@
                   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../php/homepage.php">Home</a>
                       </li>
                     </ul>
                     <form class="d-flex">
-                      <a class="btn btn-outline-light ms-2" href="#">Minha Conta</a>
+                      <a class="btn btn-outline-light ms-2" href="../src/index.html">Sair</a>
                     </form>
                   </div>
                 </div>
@@ -43,11 +44,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h3> Lista de Usuários</h3>
+                    <h3>Dados do Animal</h3>
                     <hr>
                 </div>
                 <div class="col-md-4 text-right h2">
-                    <a class="btn btn-primary" href="cadastro.html"><i class="fa fa-plus"></i> Novo Usuário </a>
+                    <a class="btn btn-primary" href="../src/cadastro-animal.html"><i class="fa fa-plus"></i> Cadastrar Animal </a>
                 </div>
             </div>
     
@@ -59,25 +60,28 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nome</th>
-                                <th>Email</th>
-                                <th>Telefone</th>
-                                <th>Cidade</th>
+                                <th>Tipo</th>
+                                <th>Raça</th>
+                                <th>Peso</th>
+                                <th>Porte</th>
+                                <th>Idade</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php if($dados) : ?>
         
-                            <?php foreach($dados as $usuario) : ?>
+                            <?php foreach($dados as $animal) : ?>
                             <tr>
-                                <td><?php echo $usuario['ID']; ?></td>
-                                <td><?php echo $usuario['NOME']; ?></td>
-                                <td><?php echo $usuario['EMAIL']; ?></td>
-                                <td><?php echo $usuario['TELEFONE']; ?></td>
-                                <td><?php echo $usuario['CIDADE']; ?></td>		
+                                <td><?php echo $animal['ID']; ?></td>
+                                <td><?php echo $animal['NOME']; ?></td>
+                                <td><?php echo $animal['TIPOANIMAL']; ?></td>
+                                <td><?php echo $animal['RACA']; ?></td>
+                                <td><?php echo $animal['PESO']; ?></td>
+                                <td><?php echo $animal['PORTE']; ?></td>
+                                <td><?php echo $animal['IDADE']; ?></td>				
                                 <td>
-                                    <a href="#" class="btn btn-success">Visualizar</a>
-                                    <a href="../php/excluir.php?ID=<?php echo $usuario['ID']; ?>" class="btn btn-danger">Excluir</a>
-                                    <a href="../php/editar.php?ID=<?php echo $usuario['ID']; ?>" class="btn btn-info">Alterar</a>
+                                    <a href="../php/editar_animal.php?ID=<?php echo $animal['ID']; ?>" class="btn btn-info">Alterar</a>
+                                    <a href="../php/excluir_excluir.php?ID=<?php echo $animal['ID']; ?>" class="btn btn-danger">Excluir</a>
                                 </td>
                             </tr>
         
@@ -90,11 +94,9 @@
                             </tr>
                             <?php endif; ?>
                         </tbody>
-                    </table>
-        
+                    </table>       
                 </div>
-                <div class="col-md-2"></div>
-        
+                <div class="col-md-2"></div>       
             </div>
         </div>
     </body>
